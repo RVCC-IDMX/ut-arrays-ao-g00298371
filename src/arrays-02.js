@@ -38,9 +38,23 @@
  * @param {number} indx - the index of the string
  * @returns {string} - the character at the index
  */
+/**
+ * Finds the character at the specified index
+ * @param {string} str - the string to be searched
+ * @param {number} indx - the index of the string
+ * @returns {string} - the character at the index
+ */
 function findTheCharacterAtIndex(str, indx) {
-  // write your code here & return value
+  if (indx >= 0 && indx < str.length) {
+    return str.charAt(indx);
+  }
+  return '';
 }
+
+// Example usage:
+const exampleString = 'Hello, World!';
+const characterAtIndex = findTheCharacterAtIndex(exampleString, 7);
+console.log(characterAtIndex); // Output: 'W'
 
 /**
  * Slice a string
@@ -50,7 +64,7 @@ function findTheCharacterAtIndex(str, indx) {
  * @returns {string} - the sliced string
  */
 function sliceTheString(str, start, end) {
-  // write your code here & return value
+  return str.slice(start, end);
 }
 
 /**
@@ -60,7 +74,7 @@ function sliceTheString(str, start, end) {
  * @returns {array} - the array of substrings
  */
 function splitTheString(str, separator) {
-  // write your code here & return value
+  return str.split(separator);
 }
 
 /**
@@ -69,7 +83,7 @@ function splitTheString(str, separator) {
  * @returns {string} - the string with all the letters in uppercase
  */
 function makeAllUpperCase(str) {
-  // write your code here & return value
+  return str.toUpperCase();
 }
 
 /**
@@ -78,7 +92,7 @@ function makeAllUpperCase(str) {
  * @returns {string} - the string with all the letters lowercase
  */
 function makeAllLowerCase(str) {
-  // write your code here & return value
+  return str.toLowerCase();
 }
 
 /**
@@ -90,7 +104,7 @@ function makeAllLowerCase(str) {
  * ? ex: 'HELLO' => 'Hello'
  */
 function makeWordTitleCase(word) {
-  // write your code here & return value
+  return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
 }
 
 /**
@@ -102,7 +116,7 @@ function makeWordTitleCase(word) {
  * ? ex: 'hello world', 'hello', 'hi' => 'hi world'
  */
 function replaceTheString(str, oldStr, newStr) {
-  // write your code here & return value
+  return str.replace(oldStr, newStr);
 }
 
 /**
@@ -114,7 +128,11 @@ function replaceTheString(str, oldStr, newStr) {
  * ? hint: use split() and makeWordTitleCase()
  */
 function makeSentenceTitleCase(sentence) {
-  // write your code here & return value
+  const words = sentence.split(' ');
+
+  const titleCaseWords = words.map((word) => makeWordTitleCase(word));
+
+  return titleCaseWords.join(' ');
 }
 
 module.exports = {
